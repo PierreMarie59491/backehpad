@@ -10,6 +10,11 @@ from datetime import datetime
 import logging
 import os
 import uuid
+import asyncio
+
+asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+
+
 
 # Import routes
 from routes.users import router as users_router
@@ -49,7 +54,7 @@ app = FastAPI(title="EHPAD Academy API", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000","https://frontehpad.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
