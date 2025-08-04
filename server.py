@@ -49,7 +49,7 @@ app = FastAPI(title="EHPAD Academy API", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=["http://localhost:3000, https://frontehpad.vercel.app"],
+    allow_origins=["http://localhost:3000","https://frontehpad.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
