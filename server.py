@@ -10,11 +10,6 @@ from datetime import datetime
 import logging
 import os
 import uuid
-import asyncio
-
-asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
-
-
 
 # Import routes
 from routes.users import router as users_router
