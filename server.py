@@ -13,8 +13,11 @@ import uuid
 import asyncio
 
 asyncio.set_event_loop_policy(asyncio.DefaultEventLoopPolicy())
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c4155eb80ab09b6ff32703a38c53814e7aec5001
 
 # Import routes
 from routes.users import router as users_router
