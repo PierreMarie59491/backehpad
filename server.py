@@ -47,8 +47,19 @@ async def lifespan(app: FastAPI):
     db.client.close()
     logger.info("🛑 Database connection closed")
 
-# Create FastAPI app with lifespan
-app = FastAPI(title="EHPAD Academy API", version="1.0.0", lifespan=lifespan)
+# Détection de l'environnement
+ENV = os.getenv("ENV", "development")
+
+# Création de l'app avec ou sans docs selon l'env
+app = FastAPI(
+    title="EHPAD Academy API",
+    version="1.0.0",
+    lifespan=lifespan,
+    docs_url=None if ENV == "production" else "/docs",
+    redoc_url=None if ENV == "production" else "/redoc",
+    openapi_url=None if ENV == "production" else "/openapi.json",
+)
+
 
 # Middleware (CORS)
 app.add_middleware(
